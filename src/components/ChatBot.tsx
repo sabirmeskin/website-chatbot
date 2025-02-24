@@ -14,7 +14,7 @@ export const ChatBot: React.FC = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [isRecording, setIsRecording] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
+  // const [isSpeaking, setIsSpeaking] = useState(false);
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const speechSynthesis = window.speechSynthesis;
@@ -41,9 +41,9 @@ export const ChatBot: React.FC = () => {
     }
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-    setIsSpeaking(true);
+    // utterance.onend = () => setIsSpeaking(false);
+    // utterance.onerror = () => setIsSpeaking(false);
+    // setIsSpeaking(true);
     speechSynthesis.speak(utterance);
   };
 
@@ -52,8 +52,8 @@ export const ChatBot: React.FC = () => {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorder.current = new MediaRecorder(stream);
       
-      mediaRecorder.current.ondataavailable = async (event) => {
-        const audioBlob = event.data;
+      mediaRecorder.current.ondataavailable = async () => {
+        // const audioBlob = event.data;
         setInputMessage('Voice message recorded');
       };
 
@@ -233,3 +233,6 @@ export const ChatBot: React.FC = () => {
     </>
   );
 };
+
+export default ChatBot;
+
