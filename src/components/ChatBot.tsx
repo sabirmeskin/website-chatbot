@@ -157,7 +157,7 @@ export const ChatBot: React.FC = () => {
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex cursor-pointer ${message.isBot ? 'justify-start' : 'justify-end'}`}
+                  className={`flex  ${message.isBot ? 'justify-start' : 'justify-end'}`}
                 >
                   <div
                     className={`max-w-[80%] p-3 rounded-lg group relative ${
@@ -171,10 +171,10 @@ export const ChatBot: React.FC = () => {
                       {message.timestamp.toLocaleTimeString()}
                     </p>
                     <motion.button
-                      initial={{ opacity: 0 }}
+                      initial={{ opacity: 0.2 }}
                       whileHover={{ opacity: 1 }}
                       onClick={() => speakMessage(message.content)}
-                      className="absolute -right-8 top-1/2 -translate-y-1/2 p-1.5 bg-gray-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -right-8 top-1/2 -translate-y-1/2 p-1.5 bg-gray-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                     >
                       <Volume2 size={16} className="text-white" />
                     </motion.button>
