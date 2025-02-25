@@ -170,14 +170,15 @@ export const ChatBot: React.FC = () => {
                     <p className="text-xs opacity-50 mt-1">
                       {message.timestamp.toLocaleTimeString()}
                     </p>
-                    <motion.button
+                    {message.isBot && (
+                      <motion.button
                       initial={{ opacity: 0.2 }}
                       whileHover={{ opacity: 1 }}
                       onClick={() => speakMessage(message.content)}
                       className="absolute -right-8 top-1/2 -translate-y-1/2 p-1.5 bg-gray-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                     >
                       <Volume2 size={16} className="text-white" />
-                    </motion.button>
+                    </motion.button>)}
                   </div>
                 </motion.div>
               ))}
