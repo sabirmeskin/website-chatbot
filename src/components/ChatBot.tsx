@@ -124,8 +124,8 @@ export const ChatBot: React.FC = () => {
   return (
     <>
       <motion.button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed bottom-4 right-4 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors cursor-pointer"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
@@ -207,7 +207,7 @@ export const ChatBot: React.FC = () => {
                 />
                 <button
                   onClick={isRecording ? stopRecording : startRecording}
-                  className={`p-2 rounded-lg transition-colors ${
+                  className={`p-2 rounded-lg transition-colors cursor-pointer ${
                     isRecording
                       ? 'bg-red-600 hover:bg-red-700'
                       : 'bg-gray-700 hover:bg-gray-600'
@@ -221,7 +221,7 @@ export const ChatBot: React.FC = () => {
                 </button>
                 <button
                   onClick={handleSend}
-                  className="bg-indigo-600 p-2 rounded-lg hover:bg-indigo-700 transition-colors"
+                  className="bg-indigo-600 p-2 rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer"
                 >
                   <Send size={20} className="text-white" />
                 </button>
